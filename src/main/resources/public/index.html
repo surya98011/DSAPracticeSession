@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TweeterChaatBot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/app.css" />
+</head>
+<body>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <main class="shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">LLM-powered topic intelligence for X</p>
+        <h1>TweeterChaatBot</h1>
+        <p class="subhead">Drop a topic, get 50 recent tweets from different people, a clean summary, and a post ready to ship.</p>
+      </div>
+      <div class="stat-card">
+        <div>
+          <p class="stat-label">Unique voices</p>
+          <p class="stat-value" id="stat-count">50</p>
+        </div>
+        <div>
+          <p class="stat-label">Model</p>
+          <p class="stat-value" id="stat-model">OpenAI</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="input-card">
+      <div class="input-row">
+        <input id="topic" type="text" placeholder="e.g. java 21 features, space missions, cricket analysis" />
+        <button id="run">Fetch + Summarize</button>
+        <button id="preview" class="ghost">Preview</button>
+      </div>
+      <p class="hint">Uses X API for 50 recent unique-author tweets, then summarizes with OpenAI structured output.</p>
+      <p id="status" class="status">Ready.</p>
+      <p id="moderation" class="moderation">Moderation: clear</p>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h2>Summary</h2>
+        <p id="summary">Your summary will appear here.</p>
+        <div class="chips" id="keywords"></div>
+        <ul id="bullets" class="bullets"></ul>
+      </div>
+
+      <div class="card">
+        <h2>Suggested Post</h2>
+        <textarea id="post" rows="6" readonly></textarea>
+        <div class="actions">
+          <button id="copy">Copy</button>
+          <span id="copy-status" class="status"> </span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <h2>Recent Tweets</h2>
+        <p class="muted" id="tweet-count">0 tweets loaded</p>
+      </div>
+      <div id="tweets" class="tweets"></div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
